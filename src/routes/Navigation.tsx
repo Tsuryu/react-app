@@ -1,31 +1,11 @@
 import { Suspense } from "react";
-import {
-  BrowserRouter,
-  Navigate,
-  Routes,
-  Route,
-  NavLink,
-} from "react-router-dom";
+import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
 import logo from "../logo.svg";
 import { routes } from "./routes";
+import { getNavigationElements } from "./utils";
 
 export const Navigation = () => {
-  const navItems: JSX.Element[] = [];
-  const pathItems: JSX.Element[] = [];
-
-  routes.forEach(({ to, name, path, Component }) => {
-    navItems.push(
-      <li key={to}>
-        <NavLink
-          to={to}
-          className={({ isActive }) => (isActive ? "nav-active" : "")}
-        >
-          {name}
-        </NavLink>
-      </li>
-    );
-    pathItems.push(<Route path={path} element={<Component />} key={to} />);
-  });
+  const { navItems, pathItems } = getNavigationElements(routes);
 
   return (
     <Suspense fallback={<span>Loading...</span>}>
