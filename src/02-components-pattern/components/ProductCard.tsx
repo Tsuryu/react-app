@@ -13,8 +13,15 @@ export const ProductCard = ({
   children,
   className,
   style,
+  value,
+  onChange,
 }: IProductCardProps) => {
-  const { counter, increaseBy } = useProduct();
+  const product = {
+    id,
+    title,
+    img,
+  };
+  const { counter, increaseBy } = useProduct({ onChange, product, value });
 
   return (
     <Provider value={{ counter, increaseBy, title, img, id }}>
