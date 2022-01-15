@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { IOnChangeShoppingCartItem, IProduct } from "../interfaces/interfaces";
 
 export interface UseProduct {
@@ -18,13 +18,9 @@ export const useProduct = ({
   value = 0,
 }: IUseProduct): UseProduct => {
   const [counter, setCounter] = useState<number>(value);
-  const isControlled = useRef(!!onChange);
 
   const increaseBy = useCallback(
     (value: number) => {
-      if (isControlled.current) {
-        return onChange!({ count: value, product });
-      }
       const newValue = Math.max(counter + value, 0);
       setCounter(newValue);
       onChange?.({ product, count: newValue });
