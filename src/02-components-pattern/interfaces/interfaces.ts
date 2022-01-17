@@ -7,11 +7,15 @@ export interface IProduct {
 }
 
 export interface IProductCardProps extends IProduct {
-  children?: ReactElement | ReactElement[];
+  children?:
+    | ReactElement
+    | ReactElement[]
+    | ((props: IProductCardChildrenProps) => JSX.Element);
   className?: string;
   style?: CSSProperties;
   onChange?: (args: IOnChangeShoppingCartItem) => void;
   value?: number;
+  initialValues?: IProductCardInitialValues;
 }
 
 export interface IProductContext {
@@ -20,6 +24,7 @@ export interface IProductContext {
   id: string;
   title: string;
   img?: string;
+  maxCount?: number;
 }
 
 export interface IOnChangeShoppingCartItem {
@@ -29,4 +34,18 @@ export interface IOnChangeShoppingCartItem {
 
 export interface IShoppingCartItem extends IProductCardProps {
   count: number;
+}
+
+export interface IProductCardInitialValues {
+  count?: number;
+  maxCount?: number;
+}
+
+export interface IProductCardChildrenProps {
+  count: number;
+  isMaxReached: boolean;
+  maxCount?: number;
+  product: IProduct;
+  increaseBy: (value: number) => void;
+  reset: () => void;
 }
