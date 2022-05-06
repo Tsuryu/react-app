@@ -5,6 +5,13 @@ import {
   Route,
   NavLink,
 } from "react-router-dom";
+import {
+  FormikAbstractPage,
+  FormikBasicPage,
+  FormikComponentsPage,
+  FormikYupPage,
+  RegisterPage,
+} from "../03-forms/pages";
 import logo from "../logo.svg";
 
 export const Navigation = () => {
@@ -24,25 +31,52 @@ export const Navigation = () => {
             </li>
             <li>
               <NavLink
-                to="/about"
+                to="/register"
                 className={({ isActive }) => (isActive ? "nav-active" : "")}
               >
-                About
+                Register
               </NavLink>
             </li>
             <li>
               <NavLink
-                to="/users"
+                to="/formik-basic"
                 className={({ isActive }) => (isActive ? "nav-active" : "")}
               >
-                Users
+                Formik basic
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/formik-yup"
+                className={({ isActive }) => (isActive ? "nav-active" : "")}
+              >
+                Formik Yup
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/formik-components"
+                className={({ isActive }) => (isActive ? "nav-active" : "")}
+              >
+                Formik components
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/formik-abstract"
+                className={({ isActive }) => (isActive ? "nav-active" : "")}
+              >
+                Formik abstract
               </NavLink>
             </li>
           </ul>
         </nav>
         <Routes>
-          <Route path="about" element={<h1>About page</h1>} />
-          <Route path="users" element={<h1>Users page</h1>} />
+          <Route path="register" element={<RegisterPage />} />
+          <Route path="formik-basic" element={<FormikBasicPage />} />
+          <Route path="formik-yup" element={<FormikYupPage />} />
+          <Route path="formik-components" element={<FormikComponentsPage />} />
+          <Route path="formik-abstract" element={<FormikAbstractPage />} />
           <Route path="home" element={<h1>Home page</h1>} />
           <Route path="/*" element={<Navigate to="/home" replace />} />
         </Routes>
