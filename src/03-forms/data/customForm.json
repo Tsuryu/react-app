@@ -1,0 +1,61 @@
+[
+  {
+    "type": "text",
+    "name": "firstName",
+    "placeholder": "Enter a name",
+    "label": "First name",
+    "value": "",
+    "validations": [
+      {
+        "type": "required"
+      },
+      {
+        "type": "minLenght",
+        "value": 5
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "name": "lastName",
+    "placeholder": "Enter a last name",
+    "label": "Last name",
+    "value": "",
+    "validations": [
+      {
+        "type": "required"
+      }
+    ]
+  },
+  {
+    "type": "email",
+    "name": "email",
+    "placeholder": "Enter an email address",
+    "label": "Email",
+    "value": "",
+    "validations": [
+      {
+        "type": "required"
+      },
+      {
+        "type": "email"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "name": "game",
+    "label": "Game",
+    "value": "",
+    "options": [
+      { "id": 4124, "label": "Final fantasy 9" },
+      { "id": 3426, "label": "Persona 5" },
+      { "id": 9123, "label": "YS 8" }
+    ],
+    "validations": [
+      {
+        "type": "required"
+      }
+    ]
+  }
+]
